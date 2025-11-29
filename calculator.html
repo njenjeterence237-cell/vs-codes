@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Responsive Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f4f9;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .display {
+      width: 100%;
+      height: 60px;
+      font-size: 1.6rem;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      background: #f0f0f0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 18px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .operator {
+      background: #ff9800;
+    }
+
+    .operator:hover {
+      background: #e68900;
+    }
+
+    .equal {
+      grid-column: span 2;
+      background: #28a745;
+    }
+
+    .equal:hover {
+      background: #1e7e34;
+    }
+
+    @media (max-width: 400px) {
+      button {
+        padding: 14px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <!-- Display -->
+    <input type="text" id="display" class="display" disabled>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">⌫</button>
+      <button onclick="appendValue('%')">%</button>
+      <button onclick="appendValue('/')">÷</button>
+
+      <!-- Row 2 -->
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">×</button>
+
+      <!-- Row 3 -->
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">−</button>
+
+      <!-- Row 4 -->
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <!-- Row 5 -->
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="squareRoot()">√</button>
+      <button onclick="square()">x²</button>
+
+      <!-- Row 6 -->
+      <button onclick="calculate()" class="equal">=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+
+    // Add value to display
+    function appendValue(value) {
+      display.value += value;
+    }
+
+    // Clear display
+    function clearDisplay() {
+      display.value = "";
+    }
+
+    // Delete last character
+    function deleteLast() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    // Square root function
+    function squareRoot() {
+      try {
+        display.value = Math.sqrt(eval(display.value));
+      } catch {
+        display.value = "Error";
+      }
+    }
+
+    // Square function
+    function square() {
+      try {
+        display.value = Math.pow(eval(display.value), 2);
+      } catch {
+        display.value = "Error";
+      }
+    }
+
+    // Calculate result
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>

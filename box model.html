@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Box</title>
+  <style>
+    /* Basic page styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Pricing box */
+    .pricing-box {
+      background-color: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      width: 320px;
+      max-width: 100%;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin: 20px;
+      padding: 28px 22px;
+      box-sizing: border-box;
+    }
+
+    .pricing-box h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #333;
+      letter-spacing: 0.2px;
+    }
+
+    .price {
+      font-size: 36px;
+      color: #4CAF50;
+      margin: 6px 0 14px;
+      font-weight: 700;
+    }
+
+    .period {
+      display: block;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 14px;
+    }
+
+    .features {
+      text-align: left;
+      margin: 0 0 18px;
+      padding: 0;
+      list-style: none;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .features li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 200ms ease, transform 120ms ease;
+    }
+
+    .cta:hover {
+      background: #399a3f;
+      transform: translateY(-2px);
+    }
+
+    /* Small responsive tweak */
+    @media (max-width: 420px) {
+      .pricing-box { padding: 20px; }
+      .price { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pricing-box">
+    <h2>Pro Plan</h2>
+    <div class="price">$29<span class="period">/month</span></div>
+    <ul class="features">
+      <li>Unlimited projects</li>
+      <li>100 GB storage</li>
+      <li>Priority email support</li>
+      <li>Advanced analytics</li>
+    </ul>
+    <a class="cta" href="#">Start Free Trial</a>
+  </div>
+
+</body>
+</html>
