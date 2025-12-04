@@ -27,9 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
       tempInCelsius = (tempValue - 32) * 5/9;
     } else if (inputUnit.value === "K") {
       tempInCelsius = tempValue - 273.15;
-    }
-
-    // Convert Celsius to desired output unit
+    }    // Convert Celsius to desired output unit
     let convertedTemp;
     if (outputUnit.value === "C") {
       convertedTemp = tempInCelsius;
